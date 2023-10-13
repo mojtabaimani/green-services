@@ -1,0 +1,15 @@
+global:
+  env: acc
+  spec:
+    project: green-acc
+    destination:
+      namespace: green-acc
+    source:
+      targetRevision: HEAD # TODO: fix the revision to a specific tag
+
+argocdApplications:
+  hello:
+    path: values/hello/overlays/acc
+
+  secrets:
+    path: apps/secrets/acc

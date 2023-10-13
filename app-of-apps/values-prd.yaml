@@ -1,0 +1,15 @@
+global:
+  env: prd
+  spec:
+    project: green-prd
+    destination:
+      namespace: green-prd
+    source:
+      targetRevision: HEAD # fix the revision to a specific tag
+
+applications:
+  hello:
+    path: values/hello/overlays/prd
+
+  secrets:
+    path: apps/secrets/prd

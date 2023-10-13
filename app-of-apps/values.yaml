@@ -1,0 +1,40 @@
+global:
+  env: tst
+  team: green
+  automated: true
+  spec:
+    project: green-tst
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: green-tst
+    source:
+      repoURL: https://github.com/mojtabaimani/green-services.git
+      targetRevision: HEAD
+    values:
+      repoURL: https://github.com/mojtabaimani/green-services.git
+      targetRevision: HEAD
+
+applications:
+  # A Kustomize application
+  hello:
+    enabled: true
+    path: values/hello/overlays/tst
+
+  # Raw yaml files
+  secrets:
+    enabled: true
+    path: apps/secrets/tst
+
+helmCharts:
+  # A chart from an external helm repository
+  nginx:
+    enabled: true
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: nginx
+    targetRevision: 15.2.0
+
+  # An application from platform repository
+  helm-guestbook:
+    enabled: true
+    repoURL: https://github.com/mojtabaimani/idp-kubernetes.git
+    targetRevision: 0.0.1
