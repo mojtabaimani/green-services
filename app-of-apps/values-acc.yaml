@@ -7,7 +7,7 @@ global:
     source:
       targetRevision: HEAD # TODO: fix the revision to a specific tag
 
-argocdApplications:
+applications:
   hello:
     path: values/hello/overlays/acc
 
